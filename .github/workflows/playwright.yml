@@ -17,6 +17,13 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+
+    - name: Start Local Backend Server
+      run: npm run start &
+    
+    - name: Wait for Backend to be ready
+      run: npx wait-on http://localhost:8887/api/v1/employees
+
     - name: Run Playwright tests
       run: npx playwright test api-employee.spec.js
     - uses: actions/upload-artifact@v4
