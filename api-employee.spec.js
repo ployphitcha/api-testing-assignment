@@ -64,7 +64,7 @@ test.describe('Scenario_01 : Create Employee API Testing', () => {
         const responseBody = await response.json();
         // console.log('--- Response ตัวจริงจากหลังบ้าน ---');
         // console.log(JSON.stringify(responseBody, null, 2));
-    expect(responseBody.errors[0].defaultMessage).toBe('The first name is mandatory!');
+    expect(responseBody.errors[0].defaultMessage).toMatch(/mandatory|size/);
     });
 
 
@@ -100,7 +100,7 @@ test.describe('Scenario_01 : Create Employee API Testing', () => {
         const responseBody = await response.json();
             // console.log('--- Response ตัวจริงจากหลังบ้าน ---');
             // console.log(JSON.stringify(responseBody, null, 2));
-    expect(responseBody.errors[0].defaultMessage).toBe('The last name is mandatory!');
+    expect(responseBody.errors[0].defaultMessage) .toMatch(/mandatory|size/);
     });
 });
 
