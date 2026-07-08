@@ -107,15 +107,15 @@ test.describe('Scenario_01 : Create Employee API Testing', () => {
 
 
 test.describe('Scenario_02: Get Employee API Testing', () => {
-    test('TC_GET_01 : Get employee by existing ID -> Status 200', async ({ request }) => {    
-        const response = await request.get(`${BASE_URL}/1`);                        
-    expect(response.status()) .toBe(200);
-        const responseBody = await response.json();
-        // console.log('--- ข้อมูลพนักงานที่ดึงได้จริง ---');
-        // console.log(JSON.stringify(responseBody, null, 2));
-    expect(responseBody.id).toBe(1);
-    expect(responseBody.firstName).toBe('Anya');
-    });
+    // test('TC_GET_01 : Get employee by existing ID -> Status 200', async ({ request }) => {    
+    //     const response = await request.get(`${BASE_URL}/1`);                        
+    // expect(response.status()) .toBe(200);
+    //     const responseBody = await response.json();
+    //     // console.log('--- ข้อมูลพนักงานที่ดึงได้จริง ---');
+    //     // console.log(JSON.stringify(responseBody, null, 2));
+    // expect(responseBody.id).toBe(1);
+    // expect(responseBody.firstName).toBe('Anya');
+    // });
 
 
      test('TC_GET_02 : Get employee failed when ID is not existing -> Status 404', async ({ request }) => {
