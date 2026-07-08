@@ -18,11 +18,17 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     
-    - name: Wait for Backend to be ready
-      run: npx wait-on http://localhost:8887/api/v1/employees
+    # - name: Wait for Backend to be ready
+    #   run: npx wait-on http://localhost:8887/api/v1/employees
 
-    - name: Run Playwright tests
-      run: npx playwright test api-employee.spec.js
+    - name: Start Backend and Run Tests
+      run: |
+        npm run start &
+        npx wait-on http://localhost:8887/api/v1/employees
+        npx playwright test api-employee.spec.js
+
+    # - name: Run Playwright tests
+    #   run: npx playwright test api-employee.spec.js
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
