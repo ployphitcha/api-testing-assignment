@@ -1,7 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { request } = require('node:http');
-// const BASE_URL = 'http://localhost:8887/api/v1/employees';
-const BASE_URL = 'https://qa-practice.com/api/v1/employees';
+const BASE_URL = 'http://localhost:8887/api/v1/employees';
 
 test.describe('Scenario_01 : Create Employee API Testing', () => {
 
